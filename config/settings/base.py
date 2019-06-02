@@ -22,7 +22,7 @@ DEBUG = env.bool('DJANGO_DEBUG', False)
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
 # In Windows, this must be set to your system time zone.
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
@@ -32,14 +32,14 @@ USE_I18N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
 USE_L10N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
-USE_TZ = True
-
+USE_TZ = False
+DATETIME_FORMAT = '%Y-%m-%d %H:%m'
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres:///matdolbook'),
+    'default': env.db('DATABASE_URL', default='postgres://postgres:enwkd0329!@localhost:5432/matdolbook'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -71,6 +71,7 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'matdolbook.users.apps.UsersAppConfig',
+    'matdolbook.board.apps.BoardConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -209,7 +210,7 @@ FIXTURE_DIRS = (
 # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
 SESSION_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
-CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
 SECURE_BROWSER_XSS_FILTER = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
