@@ -284,4 +284,5 @@ matdolbook/media/
 
 .pytest_cache/
 
-
+#추가사항
+./config/settings/base.py
